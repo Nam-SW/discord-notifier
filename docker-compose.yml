@@ -1,0 +1,14 @@
+services:
+  discord-notifier:
+    build: .
+    container_name: discord-notifier
+    restart: unless-stopped
+
+    env_file:
+      - .env
+
+    volumes:
+      - ./data:/app/data
+
+    environment:
+      STATE_PATH: /app/data/state.json
